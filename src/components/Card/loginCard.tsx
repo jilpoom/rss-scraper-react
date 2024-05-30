@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { getAccessToken } from "@/lib/services/auths/login.ts";
 import { useForm } from "react-hook-form";
 import {
   Button,
@@ -11,6 +10,7 @@ import {
   Input,
   Label,
 } from "@/components/ui";
+import { requestAccessToken } from "@/lib/services/auths/login.ts";
 
 interface HookFormTypes {
   email: string;
@@ -23,7 +23,7 @@ export default function LoginCard() {
 
   const onValid = async (data: HookFormTypes) => {
     try {
-      const access_token = await getAccessToken(data);
+      const access_token = await requestAccessToken(data);
       localStorage.setItem("access_token", access_token);
       navigator("/");
     } catch (e) {

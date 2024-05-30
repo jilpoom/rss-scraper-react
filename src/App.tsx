@@ -1,10 +1,11 @@
 import Router from "@/router.tsx";
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
-    <div>
+    <RecoilRoot>
       <Router />
-    </div>
+    </RecoilRoot>
   );
 }
 
