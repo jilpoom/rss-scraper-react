@@ -1,5 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { DashboardPage, LoginPage, SignInPage } from "@/pages";
+import {
+  DashboardPage,
+  LoginLoadingPage,
+  LoginPage,
+  SignInPage,
+} from "@/pages";
 
 export default function Router() {
   return (
@@ -7,6 +12,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<DashboardPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/login/auth" element={<LoginLoadingPage />}/>
         <Route path="/signIn" element={<SignInPage />} />
       </Routes>
     </BrowserRouter>

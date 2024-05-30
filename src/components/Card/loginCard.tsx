@@ -19,14 +19,13 @@ interface HookFormTypes {
 
 export default function LoginCard() {
   const { register, handleSubmit, reset } = useForm<HookFormTypes>();
-  const navigate = useNavigate();
+  const navigator = useNavigate();
 
   const onValid = async (data: HookFormTypes) => {
     try {
       const access_token = await getAccessToken(data);
       localStorage.setItem("access_token", access_token);
-
-      navigate("/");
+      navigator("/");
     } catch (e) {
       alert("올바른 아이디 및 비밀번호가 아닙니다.");
     }
@@ -66,7 +65,7 @@ export default function LoginCard() {
               </div>
               <Link
                 className="flex flex-col space-y-1.5"
-                to="http://localhost:10010/auths/kakao/redirect"
+                to="http://localhost:10010/auths/kakao/authorize"
               >
                 <Button className="bg-amber-300 text-black" type="button">
                   KakaoTalk
