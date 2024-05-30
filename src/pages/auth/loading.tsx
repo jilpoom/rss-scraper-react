@@ -1,22 +1,38 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { getAccessToken } from "@/lib/services/auths/login.ts";
+import {
+  requestAccessToken,
+  requestUserProfile,
+} from "@/lib/services/auths/login.ts";
+import { useRecoilState } from "recoil";
+import { userState } from "@/states/recoil-states.ts";
 
 function Loading() {
   const location = useLocation();
   const navigator = useNavigate();
+  const [, setUser] = useRecoilState(userState);
 
   useEffect(() => {
     const code = location.search.substring(1).split("=")[1];
 
-    getAccessToken({
-      options: {
-        provider: "kakao",
-        code,
-      },
-    })
-      .then((access_token) => {
-        localStorage.setItem("access_token", access_token);
+    const getAccessToken = async (code: string) => {
+      const access_token = await requestAccessToken({
+        options: {
+          provider: "kakao",
+          code: code,
+        },
+      });
+
+      localStorage.setItem("access_token", access_token);
+
+      const user = await requestUserProfile();
+
+      setUser(user);
+      console.log(user);
+    };
+
+    getAccessToken(code)
+      .then(() => {
         navigator("/");
       })
       .catch((e) => {

@@ -12,7 +12,7 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<DashboardPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/login/auth" element={<LoginLoadingPage />}/>
+        <Route path="/login/auth" element={<LoginLoadingPage />} />
         <Route path="/signIn" element={<SignInPage />} />
       </Routes>
     </BrowserRouter>
