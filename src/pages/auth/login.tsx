@@ -1,11 +1,9 @@
-import {LoginCard} from "@/components/Card";
+import { LoginCard } from "@/components/Card";
 
-const Login = () => {
-    return (
-        <div>
-           <LoginCard/>
-        </div>
-    );
-};
-
-export default Login;
+export default function Login() {
+  return (
+    <div>
+      <LoginCard />
+    </div>
+  );
+}

@@ -1,11 +1,9 @@
-import {SignInCard} from "@/components/Card";
+import { SignInCard } from "@/components/Card";
 
-const SignIn = () => {
-    return (
-        <div>
-            <SignInCard/>
-        </div>
-    );
-};
-
-export default SignIn;
+export default function SignIn() {
+  return (
+    <div>
+      <SignInCard />
+    </div>
+  );
+}
