@@ -1,12 +1,11 @@
-import {DashboardPage} from "@/pages";
-
+import Router from "@/router.tsx";
 
 function App() {
 
     return (
-        <>
-            <DashboardPage/>
-        </>
+        <div>
+            <Router/>
+        </div>
     )
 }
 
