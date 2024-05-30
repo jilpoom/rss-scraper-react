@@ -9,3 +9,4 @@ React + Typescript 기반, Rss-Scraper SPA 클라이언트
 | 0  | 프로젝트 구조 결정 및 프로젝트 시작                   | 2024-05-30 |    |
 | 1  | [shadcn-ui](https://ui.shadcn.com/) 적용 | 2024-05-30 |    | 
 | 2  | Eslint, Prettier 적용                    | 2024-05-30 |    |
+| 3  | Kakao 소셜 로그인 구현                        | 2024-05-30 |    | |
