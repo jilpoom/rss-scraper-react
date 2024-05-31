@@ -6,6 +6,7 @@ import {
 } from "@/lib/services/auths/login.ts";
 import { useRecoilState } from "recoil";
 import { userState } from "@/states/recoil-states.ts";
+import { setAuthorizationHeader } from "@/lib/services/fetcher.ts";
 
 function Loading() {
   const location = useLocation();
@@ -24,11 +25,11 @@ function Loading() {
       });
 
       localStorage.setItem("access_token", access_token);
+      setAuthorizationHeader(access_token);
 
       const user = await requestUserProfile();
 
       setUser(user);
-      console.log(user);
     };
 
     getAccessToken(code)
