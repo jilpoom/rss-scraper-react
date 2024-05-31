@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   requestRssByNewsPaper,
   requestScrap,
@@ -15,9 +15,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  Skeleton,
 } from "@/components/ui";
 import { Link } from "react-router-dom";
-import { set } from "react-hook-form";
 
 type RssData = {
   title: string;
@@ -94,7 +94,7 @@ const NewsCard = ({
     //TODO: Skeleton 작성
     return (
       <>
-        <p>loading...</p>
+        <Skeleton className="h-2/3 w-96" />
       </>
     );
   }
