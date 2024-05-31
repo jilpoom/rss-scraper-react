@@ -94,52 +94,50 @@ const NewsCard = ({
   }
 
   return (
-    <>
-      <Card className=" w-96">
-        <CardHeader className="flex justify-between flex-row items-center">
-          <CardTitle>{newspaper_name}</CardTitle>
-          <CardDescription>
-            <Select
-              onValueChange={(value) => {
-                setSelectRss(rssList.filter((rss) => rss.id === +value)[0]);
-              }}
-            >
-              <SelectTrigger className="w-[120px]">
-                <SelectValue placeholder={selectRss.category} />
-              </SelectTrigger>
-              <SelectContent>
-                {rssList.map((rss) => (
-                  <SelectItem key={rss.id} value={rss.id + ""}>
-                    {rss.category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col">
-          {rssDataList.slice(0, 3).map((rssData, index) => (
-            <div
-              key={index}
-              className="mb-4 gird grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0 border gap-2 h-20"
-            >
-              <Link target="_blank" rel="external" to={rssData.link}>
-                <div className="space-y-1">
-                  <p className="text-sm leading-none font-semibold hover:underline">
-                    {rssData.title}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {rssData.description.length < 25
-                      ? rssData.description
-                      : rssData.description.substring(0, 22) + "..."}
-                  </p>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-    </>
+    <Card className=" w-96">
+      <CardHeader className="flex justify-between flex-row items-center">
+        <CardTitle>{newspaper_name}</CardTitle>
+        <CardDescription>
+          <Select
+            onValueChange={(value) => {
+              setSelectRss(rssList.filter((rss) => rss.id === +value)[0]);
+            }}
+          >
+            <SelectTrigger className="w-[120px]">
+              <SelectValue placeholder={selectRss.category} />
+            </SelectTrigger>
+            <SelectContent>
+              {rssList.map((rss) => (
+                <SelectItem key={rss.id} value={rss.id + ""}>
+                  {rss.category}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="flex flex-col">
+        {rssDataList.slice(0, 3).map((rssData, index) => (
+          <div
+            key={index}
+            className="mb-4 gird grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0 border gap-2 h-20"
+          >
+            <Link target="_blank" rel="external" to={rssData.link}>
+              <div className="space-y-1">
+                <p className="text-sm leading-none font-semibold hover:underline">
+                  {rssData.title}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {rssData.description.length < 25
+                    ? rssData.description
+                    : rssData.description.substring(0, 22) + "..."}
+                </p>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
   );
 };
 

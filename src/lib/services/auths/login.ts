@@ -11,9 +11,7 @@ export const requestAccessToken = async (data: {
   try {
     if (data?.options?.provider === "kakao") {
       return (
-        await fetcher.get(
-          `/auths/kakao/authorize?code=${data.options.code}`,
-        )
+        await fetcher.get(`/auths/kakao/authorize?code=${data.options.code}`)
       ).data?.access_token;
     }
 

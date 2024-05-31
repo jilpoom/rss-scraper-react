@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   DashboardPage,
   HomePage,
@@ -6,7 +6,7 @@ import {
   LoginPage,
   SignInPage,
 } from "@/pages";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { userState } from "@/states/recoil-states.ts";
 import Navbar from "@/layouts/header/navbar.tsx";
