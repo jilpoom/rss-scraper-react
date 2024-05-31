@@ -17,7 +17,9 @@ export default function Navbar({
         <div className="flex space-x-4">
           {isLoggedIn ? (
             <>
-              <UserAvatar />
+              <Link to="/dashboard">
+                <UserAvatar />
+              </Link>
               <LogoutAlertDialog handleLoggedIn={handleLoggedIn} />
             </>
           ) : (
