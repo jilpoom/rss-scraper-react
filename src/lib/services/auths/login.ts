@@ -1,4 +1,4 @@
-import { customAxios } from "@/lib/services/customAxios.ts";
+import { fetcher } from "@/lib/services/fetcher.ts";
 
 export const requestAccessToken = async (data: {
   email?: string;
@@ -11,13 +11,13 @@ export const requestAccessToken = async (data: {
   try {
     if (data?.options?.provider === "kakao") {
       return (
-        await customAxios.get(
+        await fetcher.get(
           `/auths/kakao/authorize?code=${data.options.code}`,
         )
       ).data?.access_token;
     }
 
-    return (await customAxios.post("auths/signIn", data)).data?.access_token;
+    return (await fetcher.post("/auths/signIn", data)).data?.access_token;
   } catch (e) {
     if (e instanceof Error) {
       throw new Error(e.message);
@@ -27,7 +27,7 @@ export const requestAccessToken = async (data: {
 
 export const requestUserProfile = async () => {
   try {
-    return (await customAxios.get("/auths/profile")).data;
+    return (await fetcher.get("/auths/profile")).data;
   } catch (e) {
     if (e instanceof Error) {
       throw new Error(e.message);
