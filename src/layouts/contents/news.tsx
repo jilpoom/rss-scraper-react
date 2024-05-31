@@ -21,7 +21,7 @@ const News = () => {
   }, []);
 
   return (
-    <div className="flex justify-center h-auto items-center gap-10">
+    <div className="flex justify-center h-[560px] items-center gap-10">
       {newspaperList.map((newspaper) => (
         <NewsCard
           key={newspaper.id}

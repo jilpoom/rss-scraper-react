@@ -7,7 +7,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
   Select,
@@ -91,18 +90,13 @@ const NewsCard = ({
   }, [selectRss]);
 
   if (loading) {
-    //TODO: Skeleton 작성
-    return (
-      <>
-        <Skeleton className="h-2/3 w-96" />
-      </>
-    );
+    return <Skeleton className="h-2/3 w-96 border" />;
   }
 
   return (
     <>
-      <Card className="h-2/3 w-96">
-        <CardHeader>
+      <Card className=" w-96">
+        <CardHeader className="flex justify-between flex-row items-center">
           <CardTitle>{newspaper_name}</CardTitle>
           <CardDescription>
             <Select
@@ -110,7 +104,7 @@ const NewsCard = ({
                 setSelectRss(rssList.filter((rss) => rss.id === +value)[0]);
               }}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[120px]">
                 <SelectValue placeholder={selectRss.category} />
               </SelectTrigger>
               <SelectContent>
@@ -144,9 +138,6 @@ const NewsCard = ({
             </div>
           ))}
         </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
       </Card>
     </>
   );

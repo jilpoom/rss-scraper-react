@@ -7,7 +7,7 @@ import {
 
 const Dashboard = () => {
   return (
-    <div className="h-2/3 flex justify-center items-center">
+    <div>
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel defaultSize={5}>SideBar</ResizablePanel>
         <ResizableHandle withHandle />
