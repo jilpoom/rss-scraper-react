@@ -53,3 +53,13 @@ export {
   SelectScrollDownButton,
 } from "./select.tsx";
 export { Skeleton } from "./skeleton.tsx";
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+} from "./table.tsx";

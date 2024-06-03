@@ -5,6 +5,7 @@ import {
   LoginLoadingPage,
   LoginPage,
   SignInPage,
+  SubscribePage,
 } from "@/pages";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
@@ -38,7 +39,7 @@ export default function Router() {
         <Route path="/signIn" element={<SignInPage />} />
         <Route element={<Sidebar />}>
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/dashboard/subscribe" element={<DashboardPage />} />
+          <Route path="/dashboard/subscribe" element={<SubscribePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

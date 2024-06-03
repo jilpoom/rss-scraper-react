@@ -12,14 +12,14 @@ const Sidebar = () => {
           >
             오늘의 뉴스
           </Button>
-          <Link to="/dashboard/subscribe">
-            <Button
-              variant="ghost"
-              className="h-[30px] w-full font-semibold text-sm"
-            >
-              구독하기
-            </Button>
-          </Link>
+        </Link>
+        <Link to="/dashboard/subscribe">
+          <Button
+            variant="ghost"
+            className="h-[30px] w-full font-semibold text-sm"
+          >
+            구독하기
+          </Button>
         </Link>
       </div>
       <Outlet />
