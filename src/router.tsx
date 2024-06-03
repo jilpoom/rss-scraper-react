@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { userState } from "@/states/recoil-states.ts";
 import Navbar from "@/layouts/header/navbar.tsx";
+import Sidebar from "@/layouts/sidebar/sidebar.tsx";
 
 export default function Router() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,7 +36,10 @@ export default function Router() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/login/auth" element={<LoginLoadingPage />} />
         <Route path="/signIn" element={<SignInPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route element={<Sidebar />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/dashboard/subscribe" element={<DashboardPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
