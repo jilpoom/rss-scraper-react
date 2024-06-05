@@ -65,7 +65,7 @@ export default function LoginCard() {
               </div>
               <Link
                 className="flex flex-col space-y-1.5"
-                to="http://localhost:10010/auths/kakao/authorize"
+                to={`${import.meta.env.VITE_API_HOST}/auths/kakao/authorize`}
               >
                 <Button className="bg-amber-300 text-black" type="button">
                   KakaoTalk

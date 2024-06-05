@@ -4,6 +4,7 @@ import { useRecoilState } from "recoil";
 import { userState } from "@/states/recoil-states.ts";
 import { columns, Subscribe } from "@/components/Table/columnDef.tsx";
 import SubscribeTable from "@/components/Table/subscribeTable.tsx";
+import { CancelTokenSource } from "@/lib/services/fetcher.ts";
 
 const SubscribePage = () => {
   const [user] = useRecoilState(userState);
@@ -38,6 +39,10 @@ const SubscribePage = () => {
     };
 
     getSubscribes();
+
+    return () => {
+      CancelTokenSource.cancel();
+    };
   }, []);
 
   return (
